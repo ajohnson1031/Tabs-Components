@@ -63,6 +63,16 @@ class TabItem {
     items.forEach(elem => {
       elem.classList.remove("tabs-item-selected");
     });
+    TweenLite.to(this.element, 0.65, {
+      left: 1010,
+      ease: Power2.easeOut,
+      onComplete: this.slideIn,
+      onCompleteParams: [this.element]
+    });
+  }
+
+  slideIn(elem) {
+    TweenLite.to(elem, 0.5, { left: 0, ease: Power2.easeOut });
   }
 }
 
